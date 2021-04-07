@@ -18,7 +18,7 @@
         android:background="@color/gray"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
     />
 
     <EditText
@@ -33,7 +33,7 @@
         android:gravity="center"
         android:background="@color/gray"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="50dp"
     />
 
@@ -50,7 +50,7 @@
         android:background="@color/gray"
         android:layout_below="@id/note1"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
     />
 
     <EditText
@@ -65,7 +65,7 @@
         android:gravity="center"
         android:background="@color/gray"
         android:layout_below="@id/note2"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="50dp"
     />
@@ -83,7 +83,7 @@
         android:background="@color/gray"
         android:layout_below="@id/note3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
     />
 
     <Button
@@ -105,7 +105,7 @@
         android:id="@+id/txt_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The Student Passed"
+        android:text=""
         android:layout_below="@id/btn_calculate"
         android:gravity="center"
         android:textSize="20sp"

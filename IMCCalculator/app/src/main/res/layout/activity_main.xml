@@ -33,7 +33,7 @@
         android:hint="Height"
         android:textColorHint="@color/dark_blue"
         android:padding="20dp"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:maxLength="4"
     />
 

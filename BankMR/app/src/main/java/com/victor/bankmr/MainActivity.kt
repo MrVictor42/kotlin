@@ -17,6 +17,13 @@ class MainActivity : AppCompatActivity() {
         binding.balanceID.setOnClickListener {
             val intent = Intent(this, Balance::class.java) // This is to chance screens
             startActivity(intent)
+            finish()
+        }
+
+        binding.invoiceID.setOnClickListener {
+            val intent = Intent(this, Invoice::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

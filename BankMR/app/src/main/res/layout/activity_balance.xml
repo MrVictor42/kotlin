@@ -9,12 +9,19 @@
     android:orientation="vertical"
     tools:context=".Balance">
 
+    <Toolbar
+        android:id="@+id/toolbarBalance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <TextView
         android:id="@+id/balanceAvailableID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Balance Available"
         android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="40dp"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -25,6 +32,8 @@
         android:text="R$ 1500.00"
         android:textColor="@color/light_blue"
         android:textSize="24sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:textStyle="bold" />
 
 </LinearLayout>

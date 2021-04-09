@@ -25,5 +25,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        binding.transferID.setOnClickListener {
+            val intent = Intent(this, Transfer::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        binding.savingsID.setOnClickListener {
+            val intent = Intent(this, Savings::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

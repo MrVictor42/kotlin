@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BankMR">
-        <activity android:name=".Invoice"></activity>
+        <activity android:name=".Savings"></activity>
+        <activity android:name=".Transfer" />
+        <activity android:name=".Invoice" />
         <activity android:name=".Balance" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -72,7 +72,7 @@
         app:srcCompat="@drawable/transferencia" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/savingsID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/transferID" />
 
     <TextView
-        android:id="@+id/savingsID"
+        android:id="@+id/savingsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -105,5 +105,5 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/savingsID" />
 </androidx.constraintlayout.widget.ConstraintLayout>

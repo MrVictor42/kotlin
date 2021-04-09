@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Invoice">
+    tools:context=".Transfer">
 
     <Toolbar
-        android:id="@+id/toolbarInvoice"
+        android:id="@+id/toolbarTransfer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
     />
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Invoice Summary"
+        android:text="Transfer"
         android:textStyle="bold"
         android:textSize="30sp"
         android:gravity="center"
@@ -27,34 +27,21 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="To: "
+        android:textStyle="bold"
+        android:textSize="25sp"
         android:layout_marginTop="20dp"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:text="Due Date: 09/04/2021"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="30dp"
     />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:text="Partial Balance: 500,00"
-        android:layout_marginStart="40dp"
-    />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/light_blue"
-        android:backgroundTint="@color/white"
-        android:text="Pay Invoice"
+        android:text="Valor: "
         android:textStyle="bold"
-        android:padding="15dp"
-        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
     />
 
 </LinearLayout>

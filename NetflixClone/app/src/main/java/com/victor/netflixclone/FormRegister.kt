@@ -14,7 +14,5 @@ class FormRegister : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar!!.hide()
-
-
     }
 }

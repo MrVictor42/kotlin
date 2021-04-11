@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.victor.netflixclone.databinding.ActivityFormLoginBinding
 
 class FormLogin : AppCompatActivity() {
@@ -17,6 +19,7 @@ class FormLogin : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar!!.hide()
+        userIsAutenticated()
 
         binding.registerText.setOnClickListener {
             val intent = Intent(this, FormRegister::class.java)
@@ -36,16 +39,35 @@ class FormLogin : AppCompatActivity() {
         }
     }
 
+    private fun userIsAutenticated() {
+        val userLogged = FirebaseAuth.getInstance().currentUser
+
+        if(userLogged != null) {
+            goToMovieList()
+        }
+    }
+
     private fun authenticateUser(email: String, password: String) {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful) {
                 Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, ListMovies::class.java)
-                startActivity(intent)
-                finish()
+                goToMovieList()
             }
         }.addOnFailureListener {
-            binding.messageError.text = "Error Login User"
+            val error = it
+            val messageError = binding.messageError
+
+            when {
+                error is FirebaseAuthInvalidCredentialsException -> messageError.text = "Email or Password Are Incorrect"
+                error is FirebaseNetworkException -> messageError.text = "Without Connection With Internet"
+                else -> messageError.text = "Error Login User"
+            }
         }
+    }
+
+    private fun goToMovieList() {
+        val intent = Intent(this, MoviesList::class.java)
+        startActivity(intent)
+        finish()
     }
 }

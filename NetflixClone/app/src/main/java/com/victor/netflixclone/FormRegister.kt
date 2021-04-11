@@ -3,7 +3,10 @@ package com.victor.netflixclone
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.victor.netflixclone.databinding.ActivityFormRegisterBinding
 
 class FormRegister : AppCompatActivity() {
@@ -43,7 +46,14 @@ class FormRegister : AppCompatActivity() {
                 message.text = ""
             }
         }.addOnFailureListener {
-            message.text = "Error Register User"
+            var error = it
+
+            when {
+                error is FirebaseAuthWeakPasswordException -> message.text = "Insert a Password With 6 no Minimum Characters"
+                error is FirebaseAuthUserCollisionException -> message.text = "This Account Already Registrated!"
+                error is FirebaseNetworkException -> message.text = "Without Connection With Internet"
+                else -> message.text = "Error Registrated User"
+            }
         }
     }
 }

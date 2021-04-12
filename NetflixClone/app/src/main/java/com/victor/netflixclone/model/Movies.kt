@@ -59,5 +59,5 @@ fun addMovies(): MutableList<Movies> = mutableListOf(
 
         movies {
             capaMovie = R.drawable.filme12
-        },
+        }
 )

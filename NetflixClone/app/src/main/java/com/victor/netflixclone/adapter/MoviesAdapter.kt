@@ -1,4 +1,4 @@
-package adapter
+package com.victor.netflixclone.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

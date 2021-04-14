@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineStore">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".Slides">
+        <activity android:name=".Slides" android:theme="@style/Theme.Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
->
+    android:background="@drawable/shape_degrade"
+    tools:context=".form.FormRegister">
+
     <EditText
         android:id="@+id/edit_email"
         android:layout_width="match_parent"
@@ -35,4 +45,18 @@
         android:drawableRight="@drawable/ic_key"
     />
 
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:padding="15dp"
+        android:text="Register"
+        android:textColor="@color/white"
+        android:background="@drawable/shape_button"
+    />
 </LinearLayout>
+</androidx.core.widget.NestedScrollView>

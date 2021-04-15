@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -15,10 +16,12 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.victor.onlinestore.form.FormLogin
+import com.victor.onlinestore.fragments.Products
 
-class MainScreen : AppCompatActivity() {
+class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -28,15 +31,38 @@ class MainScreen : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        val productsFragment = Products()
+        val fragment = supportFragmentManager.beginTransaction()
+        fragment.replace(R.id.frame_container, productsFragment)
+        fragment.commit()
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        val toogle = ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toogle)
+        toogle.syncState()
+        navView.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+
+        if(id == R.id.nav_products) {
+            val productsFragment = Products()
+            val fragment = supportFragmentManager.beginTransaction()
+            fragment.replace(R.id.frame_container, productsFragment)
+            fragment.commit()
+        } else if(id == R.id.nav_register_product) {
+
+        } else if(id == R.id.nav_contact) {
+
+        }
+
+        drawer.closeDrawer(GravityCompat.START)
+        return true
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,10 +86,5 @@ class MainScreen : AppCompatActivity() {
         val intent = Intent(this, FormLogin::class.java)
         startActivity(intent)
         finish()
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }

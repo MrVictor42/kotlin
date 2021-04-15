@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "521492675467",
+    "project_id": "onlinestore-c230a",
+    "storage_bucket": "onlinestore-c230a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521492675467:android:f36ed24dac02275558cd8e",
+        "android_client_info": {
+          "package_name": "com.victor.onlinestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521492675467-jp3ltc2crrtboqraafvbqikv65j3v4d6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.victor.onlinestore",
+            "certificate_hash": "76abd086099f94c8cc99f71b60565471d0246783"
+          }
+        },
+        {
+          "client_id": "521492675467-dlqtv21omd5nmf63d8lfuqd5jacbs482.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_W4-yl84lFB0oBcHg0eeVAJqHzftV26I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521492675467-dlqtv21omd5nmf63d8lfuqd5jacbs482.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

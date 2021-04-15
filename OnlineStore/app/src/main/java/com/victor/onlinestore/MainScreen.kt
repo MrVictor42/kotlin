@@ -20,6 +20,7 @@ import androidx.core.view.GravityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.victor.onlinestore.form.FormLogin
 import com.victor.onlinestore.fragments.Products
+import com.victor.onlinestore.fragments.RegisterProduct
 
 class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -56,7 +57,8 @@ class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             fragment.replace(R.id.frame_container, productsFragment)
             fragment.commit()
         } else if(id == R.id.nav_register_product) {
-
+            val intent = Intent(this, RegisterProduct::class.java)
+            startActivity(intent)
         } else if(id == R.id.nav_contact) {
 
         }

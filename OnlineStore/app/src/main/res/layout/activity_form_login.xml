@@ -5,71 +5,100 @@
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/layout_login"
-    android:background="@drawable/shape_degrade"
-    tools:context=".form.FormLogin">
-
-    <EditText
-        android:id="@+id/edit_email"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_edit_text"
-        android:layout_marginTop="140dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:padding="15dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textColorHint="@color/black"
-        android:drawableRight="@drawable/ic_email"
-    />
+    >
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/layout_login"
+            android:background="@drawable/shape_degrade"
+            tools:context=".form.FormLogin">
 
-    <EditText
-        android:id="@+id/edit_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_edit_text"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:padding="15dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColorHint="@color/black"
-        android:drawableRight="@drawable/ic_key"
-    />
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text"
+                android:layout_marginTop="140dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="15dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColorHint="@color/black"
+                android:drawableRight="@drawable/ic_email"
+                />
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:padding="15dp"
-        android:text="Login"
-        android:textColor="@color/white"
-        android:background="@drawable/shape_button"
-    />
+            <EditText
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="15dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColorHint="@color/black"
+                android:drawableRight="@drawable/ic_key"
+                />
 
-    <TextView
-        android:id="@+id/register_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create a Account Clicking Here"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp"
-    />
-</LinearLayout>
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="15dp"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:background="@drawable/shape_button"
+                />
 
+            <TextView
+                android:id="@+id/register_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create a Account Clicking Here"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_login"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/purple"
+            android:visibility="gone"
+        >
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/white"
+            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="420dp"
+                android:gravity="center"
+            />
+        </FrameLayout>
+    </FrameLayout>
 </androidx.core.widget.NestedScrollView>

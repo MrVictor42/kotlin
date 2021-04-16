@@ -60,11 +60,24 @@ class MainScreen : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             val intent = Intent(this, RegisterProduct::class.java)
             startActivity(intent)
         } else if(id == R.id.nav_contact) {
-
+            sendEmail()
         }
 
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun sendEmail() {
+        val PACKAGE_GOOGLE_EMAIL = "com.google.android.gm"
+        val email = Intent(Intent.ACTION_SEND)
+        email.putExtra(Intent.EXTRA_EMAIL, arrayOf("")) // enviar um email
+        email.putExtra(Intent.EXTRA_SUBJECT, "") // aqui é o assunto do email
+        email.putExtra(Intent.EXTRA_TEXT, "") // aqui é o texto da mensagem
+
+        // Config apps to send email
+        email.type = "message/rec822"
+        email.setPackage(PACKAGE_GOOGLE_EMAIL)
+        startActivity(Intent.createChooser(email, "Choose Your App E-mail"))
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

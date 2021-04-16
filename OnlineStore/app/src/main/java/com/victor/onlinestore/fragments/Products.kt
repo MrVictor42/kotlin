@@ -1,11 +1,13 @@
 package com.victor.onlinestore.fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
+import android.widget.Toast
+import com.afollestad.materialdialogs.MaterialDialog
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import com.victor.onlinestore.R
@@ -14,17 +16,10 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_products.*
+import kotlinx.android.synthetic.main.payment.*
 import kotlinx.android.synthetic.main.products_list.view.*
-import java.text.FieldPosition
 
 class Products : Fragment() {
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        arguments?.let {
-//
-//        }
-//    }
 
     private lateinit var Adapter: GroupAdapter<ViewHolder>
 
@@ -36,6 +31,29 @@ class Products : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Adapter = GroupAdapter()
         recycler_products.adapter = Adapter
+        Adapter.setOnItemClickListener { item, view ->
+            val dialogView = LayoutInflater.from(context).inflate(R.layout.payment, null)
+            val builder = AlertDialog.Builder(context)
+                    .setView(dialogView)
+                    .setTitle("Payment")
+            val mAlertDialog = builder.show()
+            mAlertDialog.btn_pay.setOnClickListener {
+                mAlertDialog.dismiss()
+                val payment = mAlertDialog.form_pay.text.toString()
+
+                if(payment == "299,99" || payment == "299,00") {
+                    MaterialDialog.Builder(this!!.requireContext())
+                            .title("Payment Completed!")
+                            .content("Thank You For The Purchase! Come Back Soon!")
+                            .show()
+                } else {
+                    MaterialDialog.Builder(this!!.requireContext())
+                            .title("Payment Refused!!")
+                            .content("You Have Not For This. Please Come Back When Has Money!")
+                            .show()
+                }
+            }
+        }
 
         findProducts()
     }

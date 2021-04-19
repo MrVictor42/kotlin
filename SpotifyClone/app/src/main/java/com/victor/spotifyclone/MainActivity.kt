@@ -19,14 +19,17 @@ class MainActivity : AppCompatActivity() {
             R.id.nav_home -> {
                 val homeFragment = Home.newInstance()
                 addFragment(homeFragment)
+                return@OnNavigationItemSelectedListener true
             }
             R.id.nav_search -> {
                 val searchFragment = Search.newInstance()
                 addFragment(searchFragment)
+                return@OnNavigationItemSelectedListener true
             }
             R.id.nav_library -> {
                 val libraryFragment = Library.newInstance()
                 addFragment(libraryFragment)
+                return@OnNavigationItemSelectedListener true // isso aqui é para o efeito no menu funcionar corretamente
             }
         }
         false
